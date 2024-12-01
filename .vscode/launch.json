@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "hive_view_ce",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "hive_view_ce (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "hive_view_ce (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "hive_web",
+            "cwd": "hive_web",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "hive_web (profile mode)",
+            "cwd": "hive_web",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "hive_web (release mode)",
+            "cwd": "hive_web",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
