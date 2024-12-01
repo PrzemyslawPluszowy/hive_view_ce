@@ -1,12 +1,12 @@
 import 'dart:developer';
 
 class DynamicDataModel {
-  final Map<String, Map<int, dynamic>> data;
+  final Map<String, Map<String, dynamic>> data;
 
   DynamicDataModel({required this.data});
 
   factory DynamicDataModel.fromJson(Map<String, dynamic> json) {
-    final parsedData = <String, Map<int, dynamic>>{};
+    final parsedData = <String, Map<String, dynamic>>{};
 
     json.forEach((key, value) {
       parsedData[key] = _parseDynamicMap(value);
@@ -15,7 +15,7 @@ class DynamicDataModel {
     return DynamicDataModel(data: parsedData);
   }
 
-  static Map<int, String> _parseDynamicMap(String? dartString) {
+  static Map<String, String> _parseDynamicMap(String? dartString) {
     if (dartString == null || dartString.isEmpty) {
       return {};
     }
@@ -23,8 +23,8 @@ class DynamicDataModel {
     try {
       var cleanedString = dartString.trim().substring(1, dartString.length - 1);
 
-      final Map<int, String> resultMap = {};
-      int? currentKey;
+      final Map<String, String> resultMap = {};
+      String? currentKey;
       final StringBuffer currentValue = StringBuffer();
       int bracketBalance = 0;
 
@@ -34,10 +34,7 @@ class DynamicDataModel {
         if (currentKey == null) {
           if (char == ':') {
             final keyString = cleanedString.substring(0, i).trim();
-            currentKey = int.tryParse(keyString);
-            if (currentKey == null) {
-              throw FormatException('Error parse key: $keyString');
-            }
+            currentKey = keyString;
             cleanedString = cleanedString.substring(i + 1).trim();
             i = -1;
             continue;
